@@ -1,6 +1,16 @@
 import app from "./app"
 
 const port = process.env.PORT || 8000
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
-});
+
+async function bootstrap() {
+    try {
+        app.listen(port, () => {
+            console.log(`🚀 Server is running on http://localhost:${port}`);
+        });
+    } catch (error) {
+        console.error("Failed to start server:", error)
+        process.exit(1)
+    }
+}
+
+bootstrap()
