@@ -1,0 +1,29 @@
+model Profile {
+  id               String    @id @default(cuid())
+
+  fullName         String
+  title            String
+  subtitle         String?
+  description      String    @db.Text
+
+  profileImages    String?
+  profileImageId   String?
+  resumeUrl        String?
+
+  email            String
+  phone            String?
+  location         String?
+
+  github           String?
+  linkedin         String?
+  twitter          String?
+  facebook         String?
+
+
+
+  availableForWork Boolean   @default(true)
+
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  @@map("profile")
+}
