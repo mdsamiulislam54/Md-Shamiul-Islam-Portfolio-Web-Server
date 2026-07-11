@@ -1,0 +1,21 @@
+model Project {
+  id          String    @id @default(cuid())
+  name        String
+  tech        String[]
+  feature     String[]
+  shortDesc   String
+  description String    @db.Text
+
+  clientRepo  String
+  serverRepo  String
+  liveUrl     String
+  thumbnail   String
+  thumbnailId String?
+
+  isFeatured  Boolean   @default(false)
+  isPublished Boolean   @default(true)
+  order       Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  @@map("project")
+}
