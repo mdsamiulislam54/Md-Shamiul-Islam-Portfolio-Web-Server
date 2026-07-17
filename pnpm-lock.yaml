@@ -38,6 +38,9 @@ importers:
       pg:
         specifier: ^8.22.0
         version: 8.22.0
+      prisma:
+        specifier: ^7.8.0
+        version: 7.8.0(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(typescript@6.0.3)
       tsc-alias:
         specifier: ^1.9.1
         version: 1.9.1
@@ -60,9 +63,6 @@ importers:
       dotenv:
         specifier: ^17.4.2
         version: 17.4.2
-      prisma:
-        specifier: ^7.8.0
-        version: 7.8.0(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(typescript@6.0.3)
       tsx:
         specifier: ^4.23.0
         version: 4.23.0
