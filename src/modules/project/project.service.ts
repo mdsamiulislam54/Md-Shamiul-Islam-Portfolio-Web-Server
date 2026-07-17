@@ -5,9 +5,7 @@ import { AppError } from "../../middleware/appError";
 import { CreateProjectPayload, UpdateProjectPayload } from "./interface";
 
 const createProject = async (payload: CreateProjectPayload) => {
-    console.log("Service", payload)
-    console.log(typeof payload.tech);
-    console.log(payload.tech);
+  
     const result = await prisma.project.create({
         data: {
             name: payload.name,

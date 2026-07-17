@@ -13,7 +13,6 @@ const storage = new CloudinaryStorage({
     cloudinary: cloudinaryUpload,
 
     params: async (req, file) => {
-        console.log("stroge:", req.file,file)
         const extension = file.originalname
             .split(".")
             .pop()

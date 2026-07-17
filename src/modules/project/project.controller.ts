@@ -16,7 +16,6 @@ const createProject = catchAsync(async (req: Request, res: Response) => {
             order: Number(req.body.order)
 
         }
-        console.log("Controller", payload)
         const data = await projectService.createProject(payload)
         sendResponse(res, {
             httpStatusCode: status.CREATED,
@@ -52,7 +51,6 @@ const updateProject = catchAsync(async (req: Request, res: Response) => {
         };
 
         const data = await projectService.updateProject(id as string, payload);
-        console.log(data)
         if (req.file && data.thumbnailId) {
             await deleteFileFromCloudinary(
                 data.thumbnailId,

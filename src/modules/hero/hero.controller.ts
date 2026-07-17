@@ -59,7 +59,6 @@ const updateProfile = catchAsync(async (req: Request, res: Response) => {
 
 
         const data = await heroService.updateProfile(payload, id);
-        console.log(data)
         if (req.file && data.publicId) {
             await deleteFileFromCloudinary(
                 data.publicId,

@@ -59,7 +59,6 @@ export const globalErrorHandler = (
     message = err.message;
   }
 
-  console.error(err);
 
   res.status(statusCode).json({
     success: false,
