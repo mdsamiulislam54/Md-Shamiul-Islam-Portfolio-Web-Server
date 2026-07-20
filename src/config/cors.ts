@@ -3,7 +3,7 @@ import createCors from "cors";
 
 export const cors = createCors({
   origin: function (origin, callback) {
-    const allowedOrigins = ["http://localhost:3000","https://md-shamiul-islam-portfolio-web-server.onrender.com"];
+    const allowedOrigins = ["http://localhost:3000","https://md-shamiul-islam-portfolio-web-server.onrender.com","https://portfolio-client-two-kappa.vercel.app"];
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {

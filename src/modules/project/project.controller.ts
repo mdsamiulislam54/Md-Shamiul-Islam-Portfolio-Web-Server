@@ -49,7 +49,7 @@ const updateProject = catchAsync(async (req: Request, res: Response) => {
                 thumbnailId: req.file.filename,
             }),
         };
-
+        console.log("Update", payload)
         const data = await projectService.updateProject(id as string, payload);
         if (req.file && data.thumbnailId) {
             await deleteFileFromCloudinary(
