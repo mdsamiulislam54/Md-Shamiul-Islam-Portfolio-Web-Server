@@ -15,6 +15,7 @@ model Project {
   isFeatured  Boolean   @default(false)
   isPublished Boolean   @default(true)
   order       Int       @default(0)
+  isDeleted   Boolean   @default(false)
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   @@map("project")

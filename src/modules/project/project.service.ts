@@ -5,7 +5,7 @@ import { AppError } from "../../middleware/appError";
 import { CreateProjectPayload, UpdateProjectPayload } from "./interface";
 
 const createProject = async (payload: CreateProjectPayload) => {
-  
+
     const result = await prisma.project.create({
         data: {
             name: payload.name,
@@ -71,6 +71,7 @@ const updateProject = async (
     const result = await prisma.project.update({
         where: {
             id,
+            isDeleted:false
         },
         data,
     });
@@ -83,21 +84,44 @@ const updateProject = async (
 
 const getProjectAll = async () => {
     return await prisma.project.findMany({
-        orderBy:{order:"asc"}
+        where:{isDeleted:false},
+        orderBy: { order: "asc" }
     })
 }
 const getProjectById = async (id: string) => {
 
-    const project = await prisma.project.findFirst({ where: { id } })
+    const project = await prisma.project.findFirst({
+        where: {
+            id,
+            isDeleted:false
+        }
+    })
     if (!project) {
         throw new AppError(status.BAD_REQUEST, "Not found project this id")
     }
 
     return project
 }
+const deleteProjectById = async (id: string) => {
+
+    const project = await prisma.project.findFirst({ where: { id } })
+    if (!project) {
+        throw new AppError(status.BAD_REQUEST, "Not found project this id")
+    }
+
+    const result = await prisma.project.update({
+        where: { id },
+        data: {
+            isDeleted: true
+        }
+    })
+    return result
+}
+
 export const projectService = {
     createProject,
     updateProject,
     getProjectAll,
-    getProjectById
+    getProjectById,
+    deleteProjectById
 }
