@@ -1,15 +1,17 @@
 {
   "version": 2,
-  "buildCommand": "pnpm build",
-  "functions": {
-    "dist/server.js": {
-      "runtime": "@vercel/node"
+  "builds": [
+    {
+      "src": "/dist/server.js",
+      "use": "@vercel/node"
     }
-  },
+  ],
   "routes": [
+
     {
       "src": "/(.*)",
-      "dest": "dist/server.js"
+      "dest": "/dist/server.js"
     }
   ]
+ 
 }
